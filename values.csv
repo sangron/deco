@@ -1,0 +1,40 @@
+# Configuration for Contribution Values in a DeCo
+# This file defines how many tokens are generated for different types of contributions
+# and how the contributor's role and reactions affect the value.
+#
+# Columns:
+# contribution_type: The type of activity (commit, pull_request, issue_report, suggestion, reaction_...)
+# role: The role of the contributor (maintainer, contributor, non_member)
+# base_value: The base value of the contribution in the DeCo's native token.
+# member_reaction_multiplier: Multiplier if the reaction is from a DeCo member.
+# non_member_reaction_multiplier: Multiplier if the reaction is from a NON-member of the DeCo.
+#
+# Notes:
+# - "Reactions" here refer to reactions on commits, PRs, issues, etc.
+# - The oracle will sum the base_value and apply the reaction multipliers for each reaction.
+# - Reactions themselves can have their own types (e.g., reaction_heart, reaction_thumbs_up)
+#   which could have different base_values and multipliers if more granular weights are desired.
+
+# --- Code and Document Contributions ---
+contribution_type,role,base_value,member_reaction_multiplier,non_member_reaction_multiplier
+commit,maintainer,100,1.5,0.2
+commit,contributor,50,1.2,0.1
+pull_request_merged,maintainer,200,1.8,0.3
+pull_request_merged,contributor,100,1.5,0.2
+issue_report_critical,contributor,75,1.1,0.05
+issue_report_critical,non_member,50,1.0,0.0
+issue_report_minor,contributor,20,1.0,0.05
+suggestion,non_member,10,1.0,0.0
+documentation_update,maintainer,80,1.3,0.1
+documentation_update,contributor,40,1.1,0.05
+
+# --- Reactions (to content/code/documents) ---
+# The 'base_value' for an individual reaction is typically low or zero,
+# and the real value comes from the 'multiplier' applied to the 'base_value' of the reacted-to item.
+# However, for simplicity or to give direct value to a reaction, we can provide a base_value.
+# Optional: You could have the oracle only sum the multipliers to the original commit/PR value.
+# For this draft, we'll give them a small base value and multipliers.
+reaction_thumbs_up,member,5,0.2,0.05
+reaction_thumbs_up,non_member,2,0.1,0.0
+reaction_heart,member,7,0.3,0.1
+reaction_heart,non_member,3,0.15,0.0

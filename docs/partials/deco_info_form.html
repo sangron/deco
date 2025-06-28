@@ -1,0 +1,19 @@
+<form id="decoInfoForm" class="p-4 space-y-4">
+    <div class="mb-4">
+        <label for="decoIdea" class="block text-gray-700 text-sm font-bold mb-2">Idea de la DeCo (¿Qué hace tu DeCo?)</label>
+        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="decoIdea" rows="3" required></textarea>
+        <p class="text-gray-600 text-xs mt-1">Describe brevemente la misión o el propósito principal de tu DeCo.</p>
+    </div>
+    <div class="mb-4">
+        <label for="decoProblem" class="block text-gray-700 text-sm font-bold mb-2">Problema o Necesidad que Resuelve</label>
+        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="decoProblem" rows="3" required></textarea>
+        <p class="text-gray-600 text-xs mt-1">¿Qué problema existente busca solucionar tu DeCo o qué necesidad busca cubrir?</p>
+    </div>
+    <div class="mb-4">
+        <label for="decoNiche" class="block text-gray-700 text-sm font-bold mb-2">Nicho de Mercado o Comunidad Objetivo</label>
+        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="decoNiche" required>
+        <p class="text-gray-600 text-xs mt-1">¿A quién va dirigida tu DeCo? (Ej: "desarrolladores Web3", "artistas digitales", "emprendedores sociales").</p>
+    </div>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="saveDecoInfoBtn">Guardar Información y Continuar</button>
+    <div id="step1Status" class="mt-3"></div>
+</form>

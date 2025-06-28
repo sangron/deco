@@ -1,0 +1,42 @@
+# Initial DeCo Configuration File
+# This file contains the fundamental configuration for your Decentralized Autonomous Company (DeCo).
+# Please replace the placeholders (within the square brackets) with your DeCo's information.
+
+# --- General DeCo Configuration ---
+# Unique name for your DeCo.
+name: "[YOUR_DECO_NAME]"
+
+# A short description of your DeCo's mission or main purpose.
+description: "[YOUR_DECO_SHORT_DESCRIPTION]"
+
+# --- Blockchain Configuration (NEAR Protocol) ---
+# The main NEAR wallet address for your DeCo.
+# Ensure this wallet has sufficient funds to pay for initial services.
+near_address: "[YOUR_DECO_NEAR_ADDRESS]"
+
+# Optional: The NEAR account ID of the smart contract that will manage your DeCo's tokens (if already deployed).
+# If left empty, a default one will be generated.
+near_token_contract_id: "[OPTIONAL_NEAR_TOKEN_CONTRACT_ID]"
+
+# --- GitHub Integration Configuration ---
+# The full URL of this GitHub repository.
+# This is crucial for AI agents to know where to commit the generated documents.
+github_repo_url: "https://github.com/[YOUR_GITHUB_USERNAME]/[YOUR_REPOSITORY_NAME]"
+
+# The installation ID of the DeCo Zero GitHub App in this repository.
+# This grants DeCo Zero the necessary permissions to automatically write to your repo.
+# Please follow the instructions in the DeCo Zero documentation to install the App.
+# If you haven't installed it, the launch portal will warn you.
+github_app_installation_id: "[GITHUB_APP_INSTALLATION_ID]"
+
+# --- AI Agent Configuration ---
+# The functional areas for which you want DeCo Zero's AI agents to generate initial documents.
+# The launch portal will use this section to pre-select options.
+# You can set 'true' or 'false' for each area.
+initial_ai_generation_areas:
+  legal: true
+  marketing: false 
+  finance: false 
+  technology: false # E.g., if your DeCo is not primarily tech-focused
+  operations: false
+  human_resources: false

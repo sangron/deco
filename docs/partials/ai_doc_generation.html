@@ -1,0 +1,36 @@
+<div class="p-4 space-y-4">
+    <p class="text-gray-700">¡Felicidades! Ahora puedes generar los documentos iniciales de tu DeCo usando Inteligencia Artificial.</p>
+    
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Selecciona las Áreas de Documentos a Generar:</label>
+        <div class="grid grid-cols-2 gap-4">
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="legal" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                <span class="ml-2 text-gray-700">Legal</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="marketing" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                <span class="ml-2 text-gray-700">Marketing</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="finance" class="form-checkbox h-5 w-5 text-blue-600 rounded" checked>
+                <span class="ml-2 text-gray-700">Finanzas</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="technology" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                <span class="ml-2 text-gray-700">Tecnología</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="operations" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                <span class="ml-2 text-gray-700">Operaciones</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="area" value="human_resources" class="form-checkbox h-5 w-5 text-blue-600 rounded">
+                <span class="ml-2 text-gray-700">Recursos Humanos / Comunidad</span>
+            </label>
+        </div>
+    </div>
+
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="generateDocsBtn">Generar Documentos Ahora</button>
+    <div id="step3Status" class="mt-3"></div>
+</div>

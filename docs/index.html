@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeCo Zero - Launch Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+    <!-- New libraries for GitHub API and Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/octokit/dist/octokit-browser.js"></script>
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        #interactive-accordion-container, #readme-display-container, #loading-indicator { display: none; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+    <div class="container mx-auto max-w-4xl p-6 md:p-10 min-h-screen flex flex-col">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-bold text-sky-400">DeCo Launch Portal</h1>
+            <p class="text-slate-400 mt-2 text-lg">Your journey to a decentralized company starts here.</p>
+        </header>
+
+        <div id="messages" class="p-4 rounded-md mb-6 text-sm hidden" role="alert" aria-live="assertive"></div>
+
+        <!-- Login Section -->
+        <div id="login-section" class="bg-slate-800 shadow-2xl rounded-lg p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-sky-400 mb-4">Authentication Required</h2>
+            <p class="text-slate-400 mb-4">To access the interactive editor, please authenticate with a GitHub Personal Access Token.</p>
+            <div>
+                <label for="github-token" class="block text-sm font-medium text-sky-300 mb-1">GitHub Personal Access Token (PAT)</label>
+                <input type="password" id="github-token" class="w-full bg-slate-700 border border-slate-600 text-slate-100 rounded-md p-3" placeholder="ghp_..."/>
+                <p class="text-xs text-slate-500 mt-1">The token needs `repo` scope. It will only be stored in your browser for this session.</p>
+            </div>
+            <button id="login-btn" class="mt-4 w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-6 rounded-md">Authenticate</button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="text-center p-8">
+            <p class="text-sky-400">Loading...</p>
+        </div>
+
+        <!-- Section for non-authenticated users or read-only -->
+        <div id="readme-display-container" class="bg-slate-800 shadow-2xl rounded-lg p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-sky-400 mb-4">Repository README</h2>
+            <div id="readme-content" class="prose prose-invert max-w-none">
+                <!-- README.md content will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Main interactive content for admins/maintainers -->
+        <div id="interactive-accordion-container">
+            <div class="tabs">
+                <nav class="flex border-b border-slate-700">
+                    <button hx-get="/deco/docs/partials/deco_info_form.html" hx-target="#tab-content" hx-swap="innerHTML" class="tab-button py-4 px-6 block hover:text-sky-400 focus:outline-none text-sky-500 border-b-2 font-medium border-sky-500">
+                        Step 1: DeCo Info
+                    </button>
+                    <button hx-get="/deco/docs/partials/blockchain_config_form.html" hx-target="#tab-content" hx-swap="innerHTML" class="tab-button py-4 px-6 block hover:text-sky-400 focus:outline-none text-slate-400" disabled>
+                        Step 2: Blockchain Config
+                    </button>
+                    <button hx-get="/deco/docs/partials/ai_doc_generation.html" hx-target="#tab-content" hx-swap="innerHTML" class="tab-button py-4 px-6 block hover:text-sky-400 focus:outline-none text-slate-400" disabled>
+                        Step 3: AI Generation
+                    </button>
+                </nav>
+            </div>
+            <div id="tab-content" class="p-5 bg-slate-800 rounded-b-lg">
+                <!-- HTMX will load content here -->
+                Loading initial tab...
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

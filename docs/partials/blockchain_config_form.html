@@ -1,0 +1,19 @@
+<form id="blockchainConfigForm" class="p-4 space-y-4">
+    <div class="mb-4">
+        <label for="nearAddress" class="block text-gray-700 text-sm font-bold mb-2">NEAR Account ID para tu DeCo (ej: mi-deco.near)</label>
+        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nearAddress" placeholder="tu_deco.near" required>
+        <p class="text-gray-600 text-xs mt-1">Esta será la cuenta donde se desplegará el contrato de tu DeCo.</p>
+    </div>
+    <div class="mb-4">
+        <label for="tokenName" class="block text-gray-700 text-sm font-bold mb-2">Nombre del Token de Gobernanza (ej: DeCoCoin)</label>
+        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tokenName" required>
+        <p class="text-gray-600 text-xs mt-1">El nombre completo de tu token.</p>
+    </div>
+    <div class="mb-4">
+        <label for="tokenSymbol" class="block text-gray-700 text-sm font-bold mb-2">Símbolo del Token (ej: DCC)</label>
+        <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tokenSymbol" required>
+        <p class="text-gray-600 text-xs mt-1">El símbolo corto de tu token (máx. 5 caracteres).</p>
+    </div>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="saveBlockchainConfigBtn">Desplegar Contrato NEAR y Continuar</button>
+    <div id="step2Status" class="mt-3"></div>
+</form>
